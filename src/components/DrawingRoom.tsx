@@ -74,7 +74,7 @@ const DrawingRoom: React.FC = () => {
     //chat message
     socket.on('chatMessage', (message:ChatMessage)=>{
       setChatMessages(prevMessages => [...prevMessages,message]);
-      console.log(message)
+      
     })
 
     return () => {
@@ -112,7 +112,7 @@ const DrawingRoom: React.FC = () => {
         content: messageInput.trim(),
         timeStamp: Date.now(),
       };
-      console.log(newMessage)
+      
       socket.emit('sendMessage', { roomId, message: newMessage });
       setMessageInput('');
     }
